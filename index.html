@@ -103,6 +103,26 @@
           </div>
         </div>
         <div class="form-group row">
+          <label for="type" class="col-4 col-form-label">Typ</label>
+          <div class="col-8">
+            <select
+              id="type"
+              name="type"
+              class="custom-select"
+              aria-describedby="categoryHelpBlock"
+              required="required"
+            >
+              <option value="film">Film</option>
+              <option value="serial">serial</option>
+              <option value="gra">gra</option>
+              <option value="program">program</option>
+            </select>
+            <span id="categoryHelpBlock" class="form-text text-muted"
+              >Kategoria</span
+            >
+          </div>
+        </div>
+        <div class="form-group row">
           <label for="category" class="col-4 col-form-label">Kategoria</label>
           <div class="col-8">
             <select
@@ -176,6 +196,7 @@
           viewCounter: document.getElementById("viewCounter").value,
           category: document.getElementById("category").value,
           rating: document.getElementById("rating").value,
+          type: document.getElementById("type").value,
         });
 
         var requestOptions = {

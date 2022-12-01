@@ -9,6 +9,7 @@ const MovieSchema = new mongoose.Schema(
     viewCounter: { type: String, required: true },
     category: { type: String },
     rating: { type: String },
+    type: { type: String },
   },
   { collection: "movie" }
 );
