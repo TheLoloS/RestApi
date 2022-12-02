@@ -10,6 +10,9 @@ const User = require("./db/User.js");
 const Rank = require("./db/Score.js");
 const Movie = require("./db/Movie");
 const Series = require("./db/Series");
+function crypto(pass) {
+  return require("crypto").createHash("md5").update(pass).digest("hex");
+}
 
 const JWT_SECRET =
   "sdjkfh8923yhjdksbfma@#*(&@*!^#&@bhjb2qiuhesdbhjdsfg839ujkdhfjk";
@@ -37,7 +40,10 @@ app.use(
   })
 );
 app.get("/", function (req, res) {
-  res.sendFile(path.join(__dirname, "/index.html"));
+  // console.log(req.query.password);
+  crypto(req.query.password) === "4905842fc9ab77270e0733385a412d49"
+    ? res.sendFile(path.join(__dirname, "/index.html"))
+    : res.sendStatus("404");
 });
 
 app.post("/api/change-password", async (req, res) => {
