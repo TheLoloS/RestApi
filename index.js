@@ -40,8 +40,7 @@ app.use(
   })
 );
 app.get("/", function (req, res) {
-  // console.log(req.query.password);
-  crypto(req.query.password) === "4905842fc9ab77270e0733385a412d49"
+  crypto(String(req.query.password)) === "4905842fc9ab77270e0733385a412d49"
     ? res.sendFile(path.join(__dirname, "/index.html"))
     : res.sendStatus("404");
 });
