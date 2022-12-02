@@ -224,6 +224,7 @@ app.get("/api/getmovies", cors(), async (req, res) => {
           viewCounter: e.viewCounter,
           category: e.category,
           rating: e.rating,
+          type: e.type,
         };
         allMovies.push(json);
       });
