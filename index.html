@@ -91,6 +91,7 @@
                 id="viewCounter"
                 name="viewCounter"
                 placeholder="0"
+                value="0"
                 type="text"
                 class="form-control"
                 aria-describedby="viewCounterHelpBlock"
@@ -184,6 +185,72 @@
       </form>
     </div>
     <script>
+      const allElements = [
+        {
+          value: "film",
+          data: `<option value="komedia">komedia</option>
+              <option value="thriller">thriller</option>
+              <option value="dramat">dramat</option>
+              <option value="melodramat">melodramat</option>
+              <option value="fantasy">fantasy</option>
+              <option value="fantastycznonaukowy">fantastycznonaukowy</option>
+              <option value="kryminał">kryminał</option>
+              <option value="horror">horror</option>
+              <option value="przygoda">przygoda</option>
+              <option value="muzyczny">muzyczny</option>
+              <option value="sensacyjny">sensacyjny</option>
+              <option value="wojenny">wojenny</option>
+              <option value="akcja">akcja</option>`,
+        },
+        {
+          value: "serial",
+          data: ` <option value="komedia">komedia</option>
+              <option value="thriller">thriller</option>
+              <option value="dramat">dramat</option>
+              <option value="melodramat">melodramat</option>
+              <option value="fantasy">fantasy</option>
+              <option value="fantastycznonaukowy">fantastycznonaukowy</option>
+              <option value="kryminał">kryminał</option>
+              <option value="horror">horror</option>
+              <option value="przygoda">przygoda</option>
+              <option value="muzyczny">muzyczny</option>
+              <option value="sensacyjny">sensacyjny</option>
+              <option value="wojenny">wojenny</option>
+              <option value="akcja">akcja</option>`,
+        },
+        {
+          value: "program",
+          data: `
+          <option value="windows">windows</option>
+          <option value="android">android</option>
+       `,
+        },
+        {
+          value: "gra",
+          data: `<option value="zręcznościowe">zręcznościowe</option>
+              <option value="przygodowe">przygodowe</option>
+              <option value="fabularne">fabularne</option>
+              <option value="strategiczne">strategiczne</option>
+              <option value="symulacyjne">symulacyjne</option>
+              <option value="sportowe">sportowe</option>
+              <option value="logiczne">logiczne</option>
+              <option value="horror">horror</option>
+              <option value="edukacyjne">edukacyjne</option>
+              <option value="gry mobilne">gry mobilne</option>`,
+        },
+      ];
+      let selectType = document.querySelector("#type");
+      selectType.addEventListener("change", () => {
+        let selectCategory = document.querySelector("#category");
+
+        let findData = allElements.find((n) => n.value === selectType.value);
+        console.log(selectCategory, findData.data);
+        selectCategory.innerHTML = findData.data;
+        // console.log(selectCategory, data)
+      });
+
+      function changeType(type) {}
+
       function sendFetch() {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
