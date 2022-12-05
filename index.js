@@ -242,6 +242,7 @@ app.post("/api/setmovie", async (req, res) => {
     viewCounter,
     category,
     rating,
+    type,
   } = req.body;
 
   try {
@@ -253,6 +254,7 @@ app.post("/api/setmovie", async (req, res) => {
       viewCounter,
       category,
       rating,
+      type,
     });
     console.log("Add new movie: ", response);
     res.json({ status: "ok" });
