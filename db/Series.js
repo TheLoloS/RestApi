@@ -10,6 +10,7 @@ const SeriesSchema = new mongoose.Schema(
     category: { type: String, required: true },
     rating: { type: String, required: true },
     episode: { any: [{}] },
+    type: { type: String },
   },
   { collection: "series" }
 );

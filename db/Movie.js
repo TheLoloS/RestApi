@@ -5,7 +5,7 @@ const MovieSchema = new mongoose.Schema(
     title: { type: String, required: true },
     description: { type: String, required: true },
     pictrueLink: { type: String, required: true },
-    videoLink: { type: String, required: true },
+    videoLink: { any: [{}] },
     viewCounter: { type: String, required: true },
     category: { type: String },
     rating: { type: String },
